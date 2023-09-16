@@ -1,0 +1,25 @@
+{
+  "name": "lokad-envision",
+  "displayName": "lokad-envision",
+  "description": "Base language support for Envision",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.82.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "envision",
+      "aliases": ["Envision", "envision"],
+      "extensions": [".nvn"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "envision",
+      "scopeName": "source.envision",
+      "path": "./syntaxes/envision.tmLanguage.json"
+    }]
+  }
+}
