@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "displayName": "Envision",
   "description": "Base language support for Envision",
+  "icon" : "images/lokad-128-128.png",
   "main": "./out/extension.js",
   "publisher": "Lokad",
   "repository": "https://github.com/Lokad/vscode-envision",
