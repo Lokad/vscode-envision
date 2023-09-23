@@ -1,8 +1,11 @@
 {
   "name": "lokad-envision",
-  "displayName": "lokad-envision",
-  "description": "Base language support for Envision",
   "version": "0.0.1",
+  "displayName": "Envision",
+  "description": "Base language support for Envision",
+  "main": "./out/extension.js",
+  "publisher": "Lokad",
+  "repository": "https://github.com/Lokad/vscode-envision",
   "engines": {
     "vscode": "^1.82.0"
   },
@@ -10,16 +13,67 @@
     "Programming Languages"
   ],
   "contributes": {
-    "languages": [{
-      "id": "envision",
-      "aliases": ["Envision", "envision"],
-      "extensions": [".nvn"],
-      "configuration": "./language-configuration.json"
-    }],
-    "grammars": [{
-      "language": "envision",
-      "scopeName": "source.envision",
-      "path": "./syntaxes/envision.tmLanguage.json"
-    }]
-  }
+    "languages": [
+      {
+        "id" : "envision",
+        "aliases": ["Envision", "envision"],
+        "extensions": [".nvn"]
+      }
+    ],
+    "semanticTokenTypes": [
+      { "id": "envision_normal", "description": "Normal text" },
+      { "id": "envision_callable", "description": "Callable function or method" },
+      { "id": "envision_type", "description": "A primitive value type" },
+      { "id": "envision_keyword", "description": "Keyword" },
+      { "id": "envision_option", "description": "Process option" },
+      { "id": "envision_subkeyword", "description": "Subkeyword" },
+      { "id": "envision_table", "description": "Table" },
+      { "id": "envision_dim", "description": "Primary dimension" },
+      { "id": "envision_number", "description": "Number" },
+      { "id": "envision_string", "description": "Text literal" },
+      { "id": "envision_operator", "description": "Operator" },
+      { "id": "envision_docs", "description": "Documentation text" },
+      { "id": "envision_doctag", "description": "Documentation tag" },
+      { "id": "envision_comment", "description": "Comment" },
+      { "id": "envision_md", "description": "Markdown literal" },
+      { "id": "envision_module", "description": "Module reference" },
+      { "id": "envision_schema", "description": "Schemas" },
+      { "id": "envision_space", "description": "Whitespace" },
+      { "id": "envision_ident", "description": "Identifier" }
+    ],
+    "themes": [{
+      "label": "Envision",
+      "uiTheme": "vs-dark",
+      "path": "./themes/envision-theme.json"
+      }
+    ],
+    "configurationDefaults": {
+      "[envision]" : {
+        "editor.semanticHighlighting.enabled": true
+      }
+    },
+    "keybindings": [
+      {
+        "key": "f6",
+        "command": "lokad-envision.compile",
+        "when": "editorTextFocus && editorLangId == 'envision'"
+      }
+    ],
+    "commands": [
+      {
+        "command": "lokad-envision.compile",
+        "title": "Compile Envision"
+      }
+    ]
+  },
+  "devDependencies": {
+    "@types/node": "^20.5.0",
+    "@types/vscode": "^1.82.0"
+  },
+  "dependencies": {
+    "https": "^1.0.0"
+  },
+  "activationEvents": [
+    "onLanguage:envision"
+  ]
 }

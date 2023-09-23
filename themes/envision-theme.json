@@ -1,0 +1,83 @@
+{
+    "name": "Envision",
+    "type": "dark", 
+    "colors": {},
+    "semanticTokenColors": {
+        "envision_normal": {
+            "foreground": "#D4D4D4",
+            "background": "#383A42"
+        },
+        "envision_callable": {
+            "foreground": "#DCDCAA",
+            "background": "#986801"
+        },
+        "envision_type": {
+            "foreground": "#DCDCAA",
+            "background": "#4078F2"
+        },
+        "envision_keyword": {
+            "foreground": "#569CD6",
+            "background": "#A626A4"
+        },
+        "envision_option": {
+            "foreground": "#72CCF6",
+            "background": "#4078F2"
+        },
+        "envision_subkeyword": {
+            "foreground": "#72CCF6",
+            "background": "#A626A4"
+        },
+        "envision_table": {
+            "foreground": "#4EC9B0",
+            "background": "#0184BC"
+        },
+        "envision_dim": {
+            "foreground": "#E5D448",
+            "background": "#E45649"
+        },
+        "envision_number": {
+            "foreground": "#B5CEA8",
+            "background": "#116644"
+        },
+        "envision_string": {
+            "foreground": "#CE9178",
+            "background": "#50A14F"
+        },
+        "envision_operator": {
+            "foreground": "#D4D4D4",
+            "background": "#696C77"
+        },
+        "envision_docs": {
+            "foreground": "#6DB34F",
+            "background": "#A0A1A7"
+        },
+        "envision_doctag": {
+            "foreground": "#608B4E",
+            "background": "#A0A1A7"
+        },
+        "envision_comment": {
+            "foreground": "#608B4E",
+            "background": "#A0A1A7"
+        },
+        "envision_md": {
+            "foreground": "#FEDBA0",
+            "background": "#50A14F"
+        },
+        "envision_module": {
+            "foreground": "#CAA6F7",
+            "background": "#CA1243"
+        },
+        "envision_schema": {
+            "foreground": "#E16085",
+            "background": "#986801"
+        },
+        "envision_space": {
+            "foreground": "#FF0000",
+            "background": "#FF0000"
+        },
+        "envision_ident": {
+            "foreground": "#D4D4D4",
+            "background": "#383A42"
+        }
+    }
+}
