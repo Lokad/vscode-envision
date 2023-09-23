@@ -12,6 +12,8 @@ interface TryCompileResponse {
     }>;
 }
 
+const envisionDiagnostics = vscode.languages.createDiagnosticCollection('envision');
+
 export function compileEnvisionScript() {
     const editor = vscode.window.activeTextEditor;
 
@@ -46,13 +48,23 @@ export function compileEnvisionScript() {
                 res.on('end', () => {
                     try {
                         const data: TryCompileResponse = JSON.parse(responseBody);
-
+                
                         if (data.IsCompOk) {
                             vscode.window.showInformationMessage('Compilation successful');
+                            // Clear any previous diagnostics
+                            envisionDiagnostics.clear();
                         } else {
+                            const diagnostics: vscode.Diagnostic[] = [];
+                
                             data.CompMessages.forEach(msg => {
                                 vscode.window.showErrorMessage(`Line ${msg.Line}: ${msg.Text}`);
+                                const range = new vscode.Range(msg.Line - 1, 0, msg.Line - 1, Number.MAX_VALUE);
+                                const diagnostic = new vscode.Diagnostic(range, msg.Text, vscode.DiagnosticSeverity.Error);
+                                diagnostics.push(diagnostic);
                             });
+                
+                            // Attach diagnostics to the current document
+                            envisionDiagnostics.set(document.uri, diagnostics);
                         }
                     } catch (error) {
                         vscode.window.showErrorMessage('Failed to compile. Error: ' + error);
