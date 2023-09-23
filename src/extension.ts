@@ -1,8 +1,6 @@
 import * as vscode from 'vscode';
-import * as path from 'path';
-import { tokenizer } from './envisionHighlighter';
 import { semanticProvider } from './envisionSemanticTokensProvider';
-import * as https from 'https';
+import { compileEnvisionScript } from './envisionRemoteCompiler';
 
 /**
  * Basic language definition describing the Envision language definition
@@ -73,72 +71,9 @@ function activate(context: vscode.ExtensionContext) {
         semanticProvider.EnvisionLegend
     ));
 
-    // let disposable = vscode.commands.registerCommand('lokad-envision.compile', async function () {
-    //     // Get the active text editor
-    //     const editor = vscode.window.activeTextEditor;
-
-    //     if (editor) {
-    //         const document = editor.document;
-
-    //         // Make sure the document is of type Envision
-    //         if (document.languageId === 'envision') {
-    //             const scriptContent = document.getText();
-
-    //             // Define HTTP options
-    //             const options = {
-    //                 hostname: 'try.lokad.com',
-    //                 path: '/w/script/trycompile',
-    //                 method: 'POST',
-    //                 headers: {
-    //                     'Content-Type': 'text/plain',
-    //                     'Content-Length': Buffer.byteLength(scriptContent)
-    //                 }
-    //             };
-
-    //             const req = https.request(options, (res) => {
-    //                 let responseBody = '';
-
-    //                 res.on('data', (chunk) => {
-    //                     responseBody += chunk;
-    //                 });
-
-    //                 res.on('end', () => {
-    //                     try {
-    //                         const data: TryCompileResponse = JSON.parse(responseBody);
-
-    //                         if (data.IsCompOk) {
-    //                             vscode.window.showInformationMessage('Compilation successful');
-    //                         } else {
-    //                             // Show errors
-    //                             data.CompMessages.forEach(msg => {
-    //                                 vscode.window.showErrorMessage(`Line ${msg.Line}: ${msg.Text}`);
-    //                             });
-    //                         }
-    //                     } catch (error) {
-    //                         vscode.window.showErrorMessage('Failed to compile. Error: ' + error);
-    //                     }
-    //                 });
-    //             });
-
-    //             req.write(scriptContent);
-    //             req.end();
-    //         }
-    //     }
-    // });
-
-    // context.subscriptions.push(disposable);
+    context.subscriptions.push(vscode.commands.registerCommand('lokad-envision.compile', async function () {
+        compileEnvisionScript();
+    }));
 }
 
 exports.activate = activate;
-
-// Define the TryCompileResponse type that you expect to get from your Envision client
-interface TryCompileResponse {
-    IsCompOk: boolean;
-    CompMessages: Array<{
-        Text: string;
-        Line: number;
-        Start: number;
-        Length: number;
-        Severity: string;
-    }>;
-}
