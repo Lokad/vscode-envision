@@ -1,3 +1,6 @@
+// DO NOT TOUCH THIS FILE, YOUR CHANGE WILL BE OVERWRITTEN
+// THIS FILE IS COPIED FROM ANOTHER LOKAD PROJECT.
+
 // This highlighter is intended to be compatible with Monaco,
 // but to improve compilation speed, it does _not_ reference the 
 // Monaco modules at all. Instead, all the relevant types are 
