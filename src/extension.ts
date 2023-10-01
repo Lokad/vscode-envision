@@ -1,6 +1,7 @@
 import * as vscode from 'vscode';
 import { semanticProvider } from './envisionSemanticTokensProvider';
 import { compileEnvisionScript } from './envisionRemoteCompiler';
+import { getGlobalConfiguration, updateGlobaConfiguration } from './configurationUtil';
 
 /**
  * Basic language definition describing the Envision language definition
@@ -63,7 +64,12 @@ import { compileEnvisionScript } from './envisionRemoteCompiler';
 //     }
 // }
 
-function activate(context: vscode.ExtensionContext) {
+const colorThemeKey = 'workbench.colorTheme';
+const envisionThemeName = 'Envision';
+
+let initialTheme: string;
+
+function activate(context: vscode.ExtensionContext): void {
 
     context.subscriptions.push(vscode.languages.registerDocumentSemanticTokensProvider(
         { language: 'envision' }, 
@@ -74,6 +80,23 @@ function activate(context: vscode.ExtensionContext) {
     context.subscriptions.push(vscode.commands.registerCommand('lokad-envision.compile', async function () {
         compileEnvisionScript();
     }));
+
+    //undefined in case of default theme
+    initialTheme = getGlobalConfiguration(colorThemeKey);
+
+    updateGlobaConfiguration(colorThemeKey, envisionThemeName);
+
+}
+
+function deactivate(): void {
+
+    const currentTheme = getGlobalConfiguration(colorThemeKey);
+
+    //Go back to initial theme only if user didn't change it in a meantime
+    if (currentTheme === envisionThemeName)
+        updateGlobaConfiguration(colorThemeKey, initialTheme);
+
 }
 
 exports.activate = activate;
+exports.deactivate = deactivate;

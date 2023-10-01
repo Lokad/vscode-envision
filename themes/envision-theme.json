@@ -1,5 +1,7 @@
 {
+    "$schema": "vscode://schemas/color-theme",
     "name": "Envision",
+    "include": "./dark_vs.json",
     "type": "dark", 
     "colors": {},
     "semanticTokenColors": {
