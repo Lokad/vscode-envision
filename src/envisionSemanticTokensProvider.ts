@@ -66,7 +66,7 @@ class EnvisionSemanticTokensProvider implements vscode.DocumentSemanticTokensPro
             const isLineEmpty = document.lineAt(i).isEmptyOrWhitespace;
             const lineTokens = tokenizer.tokenize(line, state);
 
-            if (isLineEmpty) {
+            if (isLineEmpty) { //Treat empty line as whitespace token, because it's not handled in tokenization process
 
                 tokens.push(1); //Go to next line
                 tokens.push(0); //Token start character
