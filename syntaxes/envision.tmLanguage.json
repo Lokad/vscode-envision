@@ -1,5 +1,19 @@
 {
     "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
     "name": "envision",
-    "scopeName": "source.envision"
+    "scopeName": "source.envision",
+    "patterns": [
+        {
+            "match": "\\bread\\b",
+            "name": "keyword.control.envision"
+        },
+        {
+            "match": "\"(\\\\\\\\|\\\\\"|[^\"])*\"",
+            "name": "string.envision"
+        },
+        {
+            "match": "//.*$",
+            "name": "comment.line.envision"
+        }
+    ]
 }

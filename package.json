@@ -45,12 +45,6 @@
       { "id": "envision_space", "description": "Whitespace" },
       { "id": "envision_ident", "description": "Identifier" }
     ],
-    "themes": [{
-      "label": "Envision",
-      "uiTheme": "vs-dark",
-      "path": "./themes/envision-theme.json"
-      }
-    ],
     "grammars": [
       {
         "language": "envision",
