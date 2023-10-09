@@ -51,6 +51,13 @@
       "path": "./themes/envision-theme.json"
       }
     ],
+    "grammars": [
+      {
+        "language": "envision",
+        "scopeName": "source.envision",
+        "path": "./syntaxes/envision.tmLanguage.json"
+      }
+    ],
     "configurationDefaults": {
       "[envision]" : {
         "editor.semanticHighlighting.enabled": true
