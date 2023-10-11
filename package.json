@@ -45,12 +45,6 @@
       { "id": "envision_space", "description": "Whitespace" },
       { "id": "envision_ident", "description": "Identifier" }
     ],
-    "themes": [{
-      "label": "Envision",
-      "uiTheme": "vs-dark",
-      "path": "./themes/envision-theme.json"
-      }
-    ],
     "grammars": [
       {
         "language": "envision",
@@ -61,6 +55,29 @@
     "configurationDefaults": {
       "[envision]" : {
         "editor.semanticHighlighting.enabled": true
+      },
+      "editor.semanticTokenColorCustomizations": {
+        "rules": {
+          "envision_normal": "#D4D4D4",
+          "envision_callable": "#DCDCAA",
+          "envision_type": "#DCDCAA",
+          "envision_keyword": "#569CD6",
+          "envision_option": "#72CCF6",
+          "envision_subkeyword": "#72CCF6",
+          "envision_table": "#4EC9B0",
+          "envision_dim": "#E5D448",
+          "envision_number": "#B5CEA8",
+          "envision_string": "#CE9178",
+          "envision_operator": "#D4D4D4",
+          "envision_docs": "#6DB34F",
+          "envision_doctag": "#608B4E",
+          "envision_comment": "#608B4E",
+          "envision_md": "#FEDBA0",
+          "envision_module": "#CAA6F7",
+          "envision_schema": "#E16085",
+          "envision_space": "#FF0000",
+          "envision_ident": "#D4D4D4"
+        }
       }
     },
     "keybindings": [
