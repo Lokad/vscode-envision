@@ -21,7 +21,11 @@
       {
         "id" : "envision",
         "aliases": ["Envision", "envision"],
-        "extensions": [".nvn"]
+        "extensions": [".nvn"],
+        "icon": {
+          "dark": "./images/lokad-icon.svg",
+          "light": "./images/lokad-icon.svg"
+        }
       }
     ],
     "semanticTokenTypes": [
