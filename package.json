@@ -1,6 +1,6 @@
 {
   "name": "lokad-envision",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "displayName": "Envision",
   "description": "Base language support for Envision",
   "icon" : "images/lokad-128-128.png",
