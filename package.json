@@ -25,7 +25,8 @@
         "icon": {
           "dark": "./images/lokad-icon.svg",
           "light": "./images/lokad-icon.svg"
-        }
+        },
+        "configuration": "./envision-configuration.json"
       }
     ],
     "semanticTokenTypes": [
